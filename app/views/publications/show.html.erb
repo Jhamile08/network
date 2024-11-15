@@ -1,0 +1,43 @@
+<div class="mx-auto md:w-2/3 w-full flex">
+  <div class="mx-auto">
+    <% if notice.present? %>
+      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+    <% end %>
+
+    <%= render @publication %>
+    
+    <% if current_user.admin? %>
+      <%= link_to "Edit this publication", edit_publication_path(@publication), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+          <div class="inline-block ml-2">
+      <%= button_to "Destroy this publication", @publication, method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+    </div>
+    <% end %>
+
+    <%= link_to "Back to publications", publications_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Add comment", new_publication_comment_path(@publication), class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+
+
+
+    <h2>Comments</h2>
+    <% for comment in @publication.comments do %>
+        <div class="comment">
+          <p><%= comment.content %></p>
+                <% if current_user.admin? %>
+                    <%= link_to "edit this comment", edit_comment_path(@publication), class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+                    <%= button_to "Destroy this comment", @comment, method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+                <% end %>
+        </div>
+    <% end %>
+
+    <% if current_user.admin? %>
+        <p>Active: <%= @publication.active ? 'Yes' : 'No' %></p>
+
+        <%= button_to "Toggle Status", toggle_active_publication_path(@publication), 
+            method: :patch, 
+            class: "bg-blue-500 text-white py-2 px-4 rounded" %>
+      </div>    
+    <% end %>
+
+
+  </div>
+</div>

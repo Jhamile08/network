@@ -1,0 +1,37 @@
+<div class="w-full">
+  <% if notice.present? %>
+    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+  <% end %>
+
+  <% content_for :title, "Publications" %>
+
+<%= form_with url: publications_path, method: :get, local: true, class: "bg-white p-6 rounded-lg shadow-md space-y-4 flex" do %>
+
+<div class="mb-4" style="margin: 15px 10px 0 10px;">
+  <label for="category" class="block text-gray-700 font-semibold">Filter by category:</label>
+  <%= select_tag :category, options_from_collection_for_select(Category.all, :id, :name), include_blank: true, class: "mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300" %>
+  <% if current_user.admin? %>
+    <%= link_to "new category",  new_category_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+  <% end %>
+</div>
+  
+  <div class="text-right" style="margin: 15px 10px 0 10px;">
+    <%= submit_tag "Filtrar", class: "px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500" %>
+  </div>
+<% end %>
+  <div class="flex justify-between items-center">
+    <h1 class="font-bold text-4xl">Publications</h1>
+    <%= link_to "New publication", new_publication_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+  </div>
+
+  <div id="publications" class="min-w-full">
+    <% @publications.each do |publication| %>
+      <%= render publication %>
+      <p>
+        <%= link_to "Show this publication", publication, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+      </p>
+
+    <% end %>
+    <%= button_to 'Cerrar sesión', destroy_user_session_path, method: :delete %>
+  </div>
+</div>
