@@ -3,10 +3,30 @@ class PublicationsController < ApplicationController
 
   # GET /publications
   def index
-    @publications = if params[:category].present?
-                      Publication.where(category_id: params[:category])
+    # Filtrar por categoría si el parámetro :category está presente
+    @publications = Publication.all
+    @publications = @publications.where(category_id: params[:category]) if params[:category].present?
+
+    # Filtrar por fecha según el parámetro :filter
+    @publications = case params[:filter]
+                    when 'last_month'
+                      @publications.last_month
+                    when 'last_week'
+                      @publications.last_week
+                    when 'today'
+                      @publications.today
                     else
-                      Publication.all
+                      @publications
+                    end
+
+    # Filtrar por estado (activo o inactivo) según el parámetro :status
+    @publications = case params[:status]
+                    when 'active'
+                      @publications.true
+                    when 'inactive'
+                      @publications.false
+                    else
+                      @publications
                     end
   end
 
