@@ -24208,3 +24208,107 @@ Processing by PublicationsController#index as HTML
 Completed 200 OK in 4315ms (Views: 42.1ms | ActiveRecord: 4264.6ms (2 queries, 0 cached) | GC: 2.5ms)
 
 
+[dotenv] Set [36mDATABASE_URL[0m, [36mDB_PASSWORD[0m, [36mDB_HOST[0m, [36mDB_PORT[0m, [36mDB_NAME[0m, and [36mSECRET_KEY_BASE[0m
+[dotenv] Loaded [33m.env[0m
+DEPRECATION WARNING: Defining enums with keyword arguments is deprecated and will be removed
+in Rails 8.0. Positional arguments should be used instead:
+
+enum :role, [:writer, :admin]
+ (called from <class:User> at /home/andrea/Desktop/ruby/network/app/models/user.rb:2)
+Started GET "/publications?filter=inactive&commit=Filtrar" for 127.0.0.1 at 2024-11-15 14:26:11 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (356.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PublicationsController#index as HTML
+  Parameters: {"filter"=>"inactive", "commit"=>"Filtrar"}
+  Rendering layout layouts/application.html.erb
+  Rendering publications/index.html.erb within layouts/application
+  [1m[36mCategory Load (4646.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/publications/index.html.erb:12
+Started GET "/publications/new" for 127.0.0.1 at 2024-11-15 14:26:28 -0500
+Processing by PublicationsController#new as HTML
+  [1m[36mUser Load (620.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/publications/index.html.erb:13
+  [1m[36mPublication Load (187.2ms)[0m  [1m[34mSELECT "publications".* FROM "publications"[0m
+  ↳ app/views/publications/index.html.erb:39
+  Rendering layout layouts/application.html.erb
+  Rendering publications/new.html.erb within layouts/application
+  [1m[36mCategory Load (495.9ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/publications/_form.html.erb:25
+  Rendered publications/_form.html.erb (Duration: 502.6ms | GC: 0.0ms)
+  Rendered publications/new.html.erb within layouts/application (Duration: 504.3ms | GC: 0.0ms)
+  Rendered publications/_publication.html.erb (Duration: 2.1ms | GC: 0.0ms)
+  Rendered publications/_publication.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered publications/index.html.erb within layouts/application (Duration: 16587.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 644.9ms | GC: 22.6ms)
+  Rendered layout layouts/application.html.erb (Duration: 16727.8ms | GC: 23.2ms)
+Completed 200 OK in 7209ms (Views: 153.7ms | ActiveRecord: 4689.4ms (1 query, 0 cached) | GC: 23.2ms)
+
+
+Completed 200 OK in 16758ms (Views: 3291.9ms | ActiveRecord: 13440.4ms (3 queries, 0 cached) | GC: 23.2ms)
+
+
+Started GET "/categories/new" for 127.0.0.1 at 2024-11-15 14:26:36 -0500
+Processing by CategoriesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/new.html.erb within layouts/application
+  Rendered categories/_form.html.erb (Duration: 2.2ms | GC: 0.0ms)
+  Rendered categories/new.html.erb within layouts/application (Duration: 3.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 12.6ms | GC: 0.6ms)
+Completed 200 OK in 15ms (Views: 13.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.6ms)
+
+
+Started GET "/categories/new" for 127.0.0.1 at 2024-11-15 14:26:41 -0500
+Processing by CategoriesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/new.html.erb within layouts/application
+  Rendered categories/_form.html.erb (Duration: 1.2ms | GC: 0.0ms)
+  Rendered categories/new.html.erb within layouts/application (Duration: 1.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.1ms | GC: 0.0ms)
+Completed 200 OK in 8ms (Views: 7.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/categories/new" for 127.0.0.1 at 2024-11-15 14:26:42 -0500
+Processing by CategoriesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/new.html.erb within layouts/application
+  Rendered categories/_form.html.erb (Duration: 1.8ms | GC: 0.0ms)
+  Rendered categories/new.html.erb within layouts/application (Duration: 2.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 13.0ms | GC: 1.6ms)
+Completed 200 OK in 15ms (Views: 13.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 1.6ms)
+
+
+Started GET "/categories/new" for 127.0.0.1 at 2024-11-15 14:26:45 -0500
+Processing by CategoriesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/new.html.erb within layouts/application
+  Rendered categories/_form.html.erb (Duration: 1.9ms | GC: 0.3ms)
+  Rendered categories/new.html.erb within layouts/application (Duration: 2.3ms | GC: 0.3ms)
+  Rendered layout layouts/application.html.erb (Duration: 10.4ms | GC: 0.6ms)
+Completed 200 OK in 12ms (Views: 11.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.6ms)
+
+
+Started GET "/categories/new" for 127.0.0.1 at 2024-11-15 14:26:46 -0500
+Processing by CategoriesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/new.html.erb within layouts/application
+  Rendered categories/_form.html.erb (Duration: 1.1ms | GC: 0.0ms)
+  Rendered categories/new.html.erb within layouts/application (Duration: 1.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 8.0ms | GC: 0.3ms)
+Completed 200 OK in 10ms (Views: 8.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/publications?category=2&filter=last_week&commit=Filtrar" for 127.0.0.1 at 2024-11-15 14:26:55 -0500
+Processing by PublicationsController#index as HTML
+  Parameters: {"category"=>"2", "filter"=>"last_week", "commit"=>"Filtrar"}
+  Rendering layout layouts/application.html.erb
+  Rendering publications/index.html.erb within layouts/application
+  [1m[36mCategory Load (419.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/publications/index.html.erb:12
+  [1m[36mUser Load (373.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/publications/index.html.erb:13
+  [1m[36mPublication Load (300.2ms)[0m  [1m[34mSELECT "publications".* FROM "publications" WHERE "publications"."category_id" = $1 AND (created_at >= $2)[0m  [["category_id", 2], [nil, "2024-11-04 00:00:00"]]
+  ↳ app/views/publications/index.html.erb:39
+  Rendered publications/index.html.erb within layouts/application (Duration: 2462.6ms | GC: 0.4ms)
+  Rendered layout layouts/application.html.erb (Duration: 2468.3ms | GC: 0.6ms)
+Completed 200 OK in 2470ms (Views: 966.8ms | ActiveRecord: 1502.0ms (3 queries, 0 cached) | GC: 0.6ms)
+
+
